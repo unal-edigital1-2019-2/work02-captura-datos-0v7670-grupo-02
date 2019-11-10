@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module test_cam(
-    input wire clk,           // board clock: 32 MHz 
+    input wire clk,           // board clock: 100 MHz 
     input wire rst,         	// reset button
 
 	// VGA input/output  
@@ -33,16 +33,20 @@ module test_cam(
 	
 	output wire CAM_xclk,		// System  clock imput
 	output wire CAM_pwdn,		// power down mode 
-	output wire CAM_reset		// clear all registers of cam
-	// colocar aqui las entras  y salidas de la camara 
+	output wire CAM_reset,		// clear all registers of cam
+	input wire VSYNC,				// Sincronizacion vertical
+	input wire HREF,				// Sincronizacion horizontal
+	input wire PCLK,				// Reloj de Pixel
+	input wire [7:0] D,			// Entrada de datos de la imagen
+	input wire CBtn				// Boton de caputra de imagen
 
 );
 
 // TAMAÑO DE ADQUISICIÓN DE LA CAMARA 
-parameter CAM_SCREEN_X = 160;
-parameter CAM_SCREEN_Y = 120;
+parameter CAM_SCREEN_X = 320;
+parameter CAM_SCREEN_Y = 240;
 
-localparam AW = 15; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
+localparam AW = 17; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
 localparam DW = 8;
 
 // El color es RGB 332
@@ -89,6 +93,23 @@ assign CAM_xclk=  clk24M;
 assign CAM_pwdn=  0;			// power down mode 
 assign CAM_reset=  0;
 
+/* ****************************************************************************
+	Capturadora de Datos.
+	El modulo de captura adquiere los datos de la camar en formato RGB565, y
+	filtra la captura a los bits mas significativos para convertirlos a formato
+	RGB 332. La capturadora esta dise�ada para diemnsiones hasta 320x240.
+**************************************************************************** */
+
+Capturador_DD Captura (
+	.VSYNC (VSYNC),
+	.HREF (HREF),
+	.PCLK (PCLK),
+	.D (D),
+	.CBtn (CBtn),
+	.data (DP_RAM_data_in),
+	.addr (DP_RAM_addr_in),
+	.regwrite (DP_RAM_regW)
+);
 
 
 /* ****************************************************************************
@@ -99,7 +120,7 @@ assign CAM_reset=  0;
   utilizado para la camara , a partir de una frecuencia de 32 Mhz
 **************************************************************************** */
 //assign clk32M =clk;
-clk_32MHZ_to_25M_24M
+clk_100_to_25_24
   clk25_24(
   .CLK_IN1(clk),
   .CLK_OUT1(clk25M),
@@ -113,7 +134,7 @@ buffer_ram_dp buffer memoria dual port y reloj de lectura y escritura separados
 Se debe configurar AW  según los calculos realizados en el Wp01
 se recomiendia dejar DW a 8, con el fin de optimizar recursos  y hacer RGB 332
 **************************************************************************** */
-buffer_ram_dp #( AW,DW)
+buffer_ram_dp #(AW,DW)
 	DP_RAM(  
 	.clk_w(clk), 
 	.addr_in(DP_RAM_addr_in), 
@@ -144,7 +165,7 @@ VGA_Driver640x480 VGA640x480
 
  
 /* ****************************************************************************
-LÓgica para actualizar el pixel acorde con la buffer de memoria y el pixel de 
+Logica para actualizar el pixel acorde con la buffer de memoria y el pixel de 
 VGA si la imagen de la camara es menor que el display  VGA, los pixeles 
 adicionales seran iguales al color del último pixel de memoria 
 **************************************************************************** */
