@@ -43,10 +43,10 @@ module test_cam(
 );
 
 // TAMAÑO DE ADQUISICIÓN DE LA CAMARA 
-parameter CAM_SCREEN_X = 320;
-parameter CAM_SCREEN_Y = 240;
+parameter CAM_SCREEN_X = 180;
+parameter CAM_SCREEN_Y = 120;
 
-localparam AW = 17; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
+localparam AW = 15; // LOG2(CAM_SCREEN_X*CAM_SCREEN_Y)
 localparam DW = 8;
 
 // El color es RGB 332
@@ -120,7 +120,7 @@ Capturador_DD Captura (
   utilizado para la camara , a partir de una frecuencia de 32 Mhz
 **************************************************************************** */
 //assign clk32M =clk;
-clk_100_to_25_24
+clk_100_25_24
   clk25_24(
   .CLK_IN1(clk),
   .CLK_OUT1(clk25M),
@@ -176,5 +176,8 @@ always @ (VGA_posX, VGA_posY) begin
 			DP_RAM_addr_out=VGA_posX+VGA_posY*CAM_SCREEN_Y;
 end
 
+always #1 clk = ~clk ;
+
+always #5 PCLK = ~PCLK;
 
 endmodule

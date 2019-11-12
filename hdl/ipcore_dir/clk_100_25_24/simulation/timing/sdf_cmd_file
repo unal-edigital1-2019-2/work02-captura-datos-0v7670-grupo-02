@@ -1,0 +1,2 @@
+COMPILED_SDF_FILE = "../../implement/results/routed.sdf.X",
+SCOPE = clk_100_25_24_tb.dut;
