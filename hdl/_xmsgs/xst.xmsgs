@@ -8,7 +8,7 @@
 <msg type="warning" file="HDLCompiler" num="1016" delta="old" >"C:\Users\USER PC\Trabajo\David\Repositorios\work02-captura-datos-0v7670-grupo-02\hdl\src\test_cam.v" Line 123: Port <arg fmt="%s" index="1">LOCKED</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"C:\Users\USER PC\Trabajo\David\Repositorios\work02-captura-datos-0v7670-grupo-02\hdl\src\Capturador_DD.v" Line 40: Result of <arg fmt="%d" index="1">16</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">15</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\USER PC\Trabajo\David\Repositorios\work02-captura-datos-0v7670-grupo-02\hdl\src\Capturador_DD.v" Line 52: Result of <arg fmt="%d" index="1">18</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">17</arg>-bit target.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"C:\Users\USER PC\Trabajo\David\Repositorios\work02-captura-datos-0v7670-grupo-02\hdl\src\PLL\clk_100_25_24.v" Line 132: Assignment to <arg fmt="%s" index="1">clkfboutb_unused</arg> ignored, since the identifier is never used
@@ -65,13 +65,13 @@
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\USER PC\Trabajo\David\Repositorios\work02-captura-datos-0v7670-grupo-02\hdl\src\VGA_driver.v" Line 72: Result of <arg fmt="%d" index="1">11</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">10</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="new" >"C:\Users\USER PC\Trabajo\David\Repositorios\work02-captura-datos-0v7670-grupo-02\hdl\src\test_cam.v" Line 176: Result of <arg fmt="%d" index="1">17</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">15</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"C:\Users\USER PC\Trabajo\David\Repositorios\work02-captura-datos-0v7670-grupo-02\hdl\src\test_cam.v" Line 176: Result of <arg fmt="%d" index="1">18</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">17</arg>-bit target.
 </msg>
 
 <msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">C:\Users\USER PC\Trabajo\David\Repositorios\work02-captura-datos-0v7670-grupo-02\hdl\src\test_cam.v</arg>&quot; line <arg fmt="%s" index="2">124</arg>: Output port &lt;<arg fmt="%s" index="3">LOCKED</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">clk25_24</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3226" delta="new" >The RAM &lt;<arg fmt="%s" index="1">DP_RAM/Mram_ram</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
+<msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">DP_RAM/Mram_ram</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
 
 </messages>
 

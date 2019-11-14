@@ -4,7 +4,7 @@ run
 -ifn test_cam.prj
 -ofn test_cam
 -ofmt NGC
--p xc6slx9-3-tqg144
+-p xc7a100t-3-csg324
 -top test_cam
 -opt_mode Speed
 -opt_level 1
@@ -40,7 +40,7 @@ run
 -use_dsp48 Auto
 -iobuf YES
 -max_fanout 100000
--bufg 16
+-bufg 32
 -register_duplication YES
 -register_balancing No
 -optimize_primitives NO

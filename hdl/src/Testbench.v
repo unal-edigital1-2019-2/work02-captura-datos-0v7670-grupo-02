@@ -49,11 +49,9 @@ module Testbench;
 		PCLK = 0;
 		D = 0;
 		CBtn = 0;
-
-		// Wait 100 ns for global reset to finish
-		#100;
-        
-		// Add stimulus here
+		
+		always #1 clk = ~clk;
+		always #5 PCLK = ~PCLK;
 
 	end
       
