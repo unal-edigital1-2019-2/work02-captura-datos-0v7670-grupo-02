@@ -38,7 +38,7 @@ A partir del mapa de flujo nos dimos cuenta de que el modulo fisicamente requeri
 
 Realizamos el grafico de estados con un mapa de More para la Unicad de Control, y obtuvimos seis estados diferentes, asi que con un registro de tres bits,bastaria para almacenar el estado actual.
 
-![alt text](https://raw.githubusercontent.com/unal-edigital1-2019-2/work02-captura-datos-0v7670-grupo-02/master/docs/figs/Diagrama%20de%20Estados.jpeg)
+![alt text](https://raw.githubusercontent.com/unal-edigital1-2019-2/work02-captura-datos-0v7670-grupo-02/master/docs/figs/Diagrama%20de%20estados.png)
 
 Siendo asi, decidmos relizar la estructura del modulo como un conjunto de dos switch dentro de un unico always posedge, para que la primera parte se encargue de ajustar el estado de la UC, y el segundo, ejecutar los procesos que indica el estado actual. De utilizar un unico switch, la ejecucion se retrasaria un ciclo de reloj.
 
