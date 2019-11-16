@@ -26,7 +26,7 @@ Nos dimos cuenta de que era necesario que con las señales actuales, la camara f
 ## Modulo de captura
 Para la realizacion del modulo de captura, se decidio pensar en este como una maquina de estados algoritmicos para comenzar a diseñarlos. La principal limitacion que notamos en el desarrolllo fue que el proceso debia sincornizarse corrrectamente con PCLK, ya que de este clok dependia la captura de los datos, y se debia sincronizar cualquier cambio utileizando el posedge.
 
-(insertar mapa de flujo)
+![alt text](https://raw.githubusercontent.com/unal-edigital1-2019-2/work02-captura-datos-0v7670-grupo-02/master/docs/figs/Diagrama%20de%20flujo.jpg)
 
 Inicamos creando un mapa de flujo que describa el comportamiento del modulo, que se puede resumir de la siguiente manera: El modulo espera a que el usuario presione CBtn para luego prepararse para la captura en el proximo Vsync, una vez Vsync este en alto se encarga de resetear el addres. A partir de ese punto este se mantendra en espera hasta que Href se encuentre en alto, llevandolo a dos estados en bucle que son los encargados de realizar la captura y enviar a memoria. Este ciclo se repite hasta que Vsync este nuevamente en alto.
 
@@ -88,7 +88,6 @@ Siendo asi, decidmos relizar la estructura del modulo como un conjunto de dos sw
 	end
 
 ## Ajuste de PLL
-
 Para ajustar el nuevo PLL se debe tener en cuenta que el PLL a ser usado debe tener como entrada 100MHz de frecuencia (Reloj de la Nexys 4), siendo asi debimos crerar un nuevo PLL utilizando la herramineta de core generator. Para esto tuvimos en cuenta los siguientes parametros:
 
 * FPGA Artix 7
@@ -101,8 +100,16 @@ Para ajustar el nuevo PLL se debe tener en cuenta que el PLL a ser usado debe te
 Una vez creado el modulo desde un poryecto externo, copiamos el archivo .V a la carpeta de PLL, y reemplazamos pore el antiguo, sin la nacesidad de tener que asignar nuevas entradas o salidas.
 
 ## Testeo pantala
+Para el testeo de pantalla se decidio cambiar no solamente a una pantalla monocolor, sino utilizar un archivo image men que contuviera las tres principales gamas de color, y blanco. Con ayuda de una programacion sencilla por c++ se creo una archivo de texto que repitiera un patron de 20 pixeles rojo, 20 verde, 20 azul y 20 blanco hasta llenar toda la matriz de (350x240). Para cada color se uso el siguiente codigo en hexadecimal:
 
+* Blanco => FF
+* Rojo => E0
+* Verde => 1C
+* Azul => 03
 
+Los resultados depues de algunos ajustes con ensayo y error fueron los esperados, logramos que en la pantalla se proyectara adecuadamente sin pixeles corridos visibles en ningun punto. Vale la pena decir que curiosamente el resto de la pantalla parece adoptar el color del primer pixel de la memoria.
+
+![alt text](https://raw.githubusercontent.com/unal-edigital1-2019-2/work02-captura-datos-0v7670-grupo-02/master/docs/figs/Pantalla1.jpg)
 
 ## Respuestas Cortas
 
