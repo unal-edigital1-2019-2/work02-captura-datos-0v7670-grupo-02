@@ -38,7 +38,7 @@ A partir del mapa de flujo nos dimos cuenta de que el modulo fisicamente requeri
 
 Realizamos el grafico de estados con un mapa de More para la Unicad de Control, y obtuvimos seis estados diferentes, asi que con un registro de tres bits,bastaria para almacenar el estado actual.
 
-![alt text](https://raw.githubusercontent.com/unal-edigital1-2019-2/work02-captura-datos-0v7670-grupo-02/master/docs/figs/Diagrama%20de%20estados.png)
+![alt text](https://raw.githubusercontent.com/unal-edigital1-2019-2/work02-captura-datos-0v7670-grupo-02/master/docs/figs/Diagrama%20de%20Estados.jpeg)
 
 Siendo asi, decidmos relizar la estructura del modulo como un conjunto de dos switch dentro de un unico always posedge, para que la primera parte se encargue de ajustar el estado de la UC, y el segundo, ejecutar los procesos que indica el estado actual. De utilizar un unico switch, la ejecucion se retrasaria un ciclo de reloj.
 
@@ -99,6 +99,16 @@ Para ajustar el nuevo PLL se debe tener en cuenta que el PLL a ser usado debe te
 
 Una vez creado el modulo desde un poryecto externo, copiamos el archivo .V a la carpeta de PLL, y reemplazamos pore el antiguo, sin la nacesidad de tener que asignar nuevas entradas o salidas.
 
+## Simulacion
+
+Para probar brevemente el comportamiento del modulo de captura, se creo un testbench sobre el archivo Capturador_DD.V y se le pidio realizar la simulacion, utilizando señales simuladas para las entradas. Se decidio probar usando unicamente un arreglo de 4x4 bits, con datos de entrada que i an aumentando de a 1 por cada dos ciclos de reloj.
+
+Despues de realizar arreglos pertinentes, se obtiene una simulacion exitosa enviando los datos correspondientes de ROJO VERDE Y AZUL en formato 332, hacia la salida, con un regwread correctamente sincronizado al PCLK.
+
+![alt text](https://raw.githubusercontent.com/unal-edigital1-2019-2/work02-captura-datos-0v7670-grupo-02/master/docs/figs/Testbench.png)
+
+Se puede apreciar como antes de CBtn las señales de salida se mantienen constantes, y luego de el primer Vsync, este comienza a capturar los datos, con addresses correctos. La testbench se encuentra incluida dentos de src.
+
 ## Testeo pantalla
 Para el testeo de pantalla se decidio cambiar no solamente a una pantalla monocolor, sino utilizar un archivo image men que contuviera las tres principales gamas de color, y blanco. Con ayuda de una programacion sencilla por c++ se creo una archivo de texto que repitiera un patron de 20 pixeles rojo, 20 verde, 20 azul y 20 blanco hasta llenar toda la matriz de (350x240). Para cada color se uso el siguiente codigo en hexadecimal:
 
@@ -112,8 +122,13 @@ Los resultados depues de algunos ajustes con ensayo y error fueron los esperados
 ![alt text](https://raw.githubusercontent.com/unal-edigital1-2019-2/work02-captura-datos-0v7670-grupo-02/master/docs/figs/Pantalla1.jpg)
 
 ## Respuestas Cortas
+* **Realizar el test de la pantalla. Programar la FPGA con el bitstream del proyecto y no conectar la cámara. ¿Qué espera visualizar?, ¿Es correcto este resultado ?**
 
+Se esperaba que cambiando el archvo image, y llenarlo correctamente se visualizaran las barras de color. El resultado fue exitoso como se puede visualizar en la imagen del punto: Testeo de pantalla.
 
+* **¿Qué falta implementar para tener el control de la toma de fotos ?**
+
+Hacia falta implementar un boton de captura. Decidimos implementarlo en el modulo de captura bajo el nombre de CBtn. Todo el desarrollo de los avances fue realizado teniendo en cuenta la señal de captura.
 
 **Le agradecemos por tormarse la molestia de leer el documento completo :D**
 
