@@ -5,8 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/USER PC/Trabajo/David/Repositorios/work02-captura-datos-0v7670-grupo-02/hdl/src/test_cam.v" Line 102: Port <arg fmt="%s" index="1">LOCKED</arg> is not connected to this instance
-</msg>
-
 </messages>
 

@@ -20,44 +20,44 @@ module Capturador_DD (VSYNC,HREF,PCLK,D,CBtn,data,addr,regwrite);
 		//Unidad de Control
 		case(state)
 			0: begin //Inactivo
-			if (CBtn)	state <= 1;
+			if (CBtn)	state = 1;
 			end
 			1: begin //Iniciado
-			if (VSYNC)	state <= 2;
+			if (VSYNC)	state = 2;
 			end
 			2: begin //Reset
-			if (~VSYNC)	state <= 3;
+			if (~VSYNC)	state = 3;
 			end
 			3: begin //Prepare
-			if (VSYNC)	state <= 0;
-			if (HREF)	state <= 4;
+			if (VSYNC)	state = 0;
+			if (HREF)	state = 4;
 			end
 			4: begin //Captura 1
-			if (HREF)	state <= 5;
-			else			state <= 3;
+			if (HREF)	state = 5;
+			else			state = 3;
 			end
 			5: begin //Captura 2
-			if (HREF)	state <= 4;
-			else			state <= 3;
+			if (HREF)	state = 4;
+			else			state = 3;
 			end
 		endcase
 		
 		//Ejecucion de Control
 		case(state)
 			2: begin //RESET
-			addr <= 17'b111111111111111;
+			addr = 17'b11111111111111111;
 			end
 			4: begin //CAPTURA 1
-			regwrite <= 0;
-			addr <= addr+1;
-			data [7:2] <= {D[7:5],D[2:0]};
+			regwrite = 0;
+			addr = addr+1;
+			data [7:2] = {D[7:5],D[2:0]};
 			end
 			5: begin //CAPTURA 2;
-			data [1:0] <= D[4:3];
-			regwrite <= 1;
+			data [1:0] = D[4:3];
+			regwrite = 1;
 			end
 			default: begin//DEFAULT
-			regwrite <= 0;
+			regwrite = 0;
 			end
 		endcase
 		

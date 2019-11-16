@@ -25,6 +25,9 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Capturador_DD.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="Capturador_DD.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="Capturador_DD.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Testbench_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Testbench_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Testbench_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
@@ -38,6 +41,7 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="test_cam.bgn" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="test_cam.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="test_cam.bld"/>
@@ -62,11 +66,9 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="test_cam.ut" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:fileType="FILE_XPI" xil_pn:name="test_cam.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="test_cam.xst"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_cam_beh.prj"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="test_cam_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="test_cam_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_cam_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="test_cam_isim_beh.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="test_cam_map.map" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="test_cam_map.mrp" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="test_cam_map.ncd" xil_pn:subbranch="Map"/>
@@ -89,6 +91,59 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1573870621" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1573870621">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1573873434" xil_pn:in_ck="3540627575177309999" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1573873434">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="src/Capturador_DD.v"/>
+      <outfile xil_pn:name="src/PLL/clk_100_25_24.v"/>
+      <outfile xil_pn:name="src/Testbench.v"/>
+      <outfile xil_pn:name="src/VGA_driver.v"/>
+      <outfile xil_pn:name="src/buffer_ram_dp.v"/>
+      <outfile xil_pn:name="src/test_cam.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1573870672" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="2386922764329843479" xil_pn:start_ts="1573870672">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1573870672" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="5558692683312422837" xil_pn:start_ts="1573870672">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1573870621" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-1119751708929459667" xil_pn:start_ts="1573870621">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1573873434" xil_pn:in_ck="3540627575177309999" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1573873434">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="src/Capturador_DD.v"/>
+      <outfile xil_pn:name="src/PLL/clk_100_25_24.v"/>
+      <outfile xil_pn:name="src/Testbench.v"/>
+      <outfile xil_pn:name="src/VGA_driver.v"/>
+      <outfile xil_pn:name="src/buffer_ram_dp.v"/>
+      <outfile xil_pn:name="src/test_cam.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1573873438" xil_pn:in_ck="3540627575177309999" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="4607476602036870397" xil_pn:start_ts="1573873434">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Testbench_beh.prj"/>
+      <outfile xil_pn:name="Testbench_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1573873439" xil_pn:in_ck="-304781879473196562" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2862452300587805920" xil_pn:start_ts="1573873438">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Testbench_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+    </transform>
     <transform xil_pn:end_ts="1573767274" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1573767274">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -121,9 +176,12 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="test_cam.lso"/>
       <outfile xil_pn:name="test_cam.ngc"/>
@@ -132,7 +190,6 @@
       <outfile xil_pn:name="test_cam.stx"/>
       <outfile xil_pn:name="test_cam.syr"/>
       <outfile xil_pn:name="test_cam.xst"/>
-      <outfile xil_pn:name="test_cam_beh.prj"/>
       <outfile xil_pn:name="test_cam_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
