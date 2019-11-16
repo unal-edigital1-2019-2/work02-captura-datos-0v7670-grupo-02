@@ -99,7 +99,7 @@ Para ajustar el nuevo PLL se debe tener en cuenta que el PLL a ser usado debe te
 
 Una vez creado el modulo desde un poryecto externo, copiamos el archivo .V a la carpeta de PLL, y reemplazamos pore el antiguo, sin la nacesidad de tener que asignar nuevas entradas o salidas.
 
-## Testeo pantala
+## Testeo pantalla
 Para el testeo de pantalla se decidio cambiar no solamente a una pantalla monocolor, sino utilizar un archivo image men que contuviera las tres principales gamas de color, y blanco. Con ayuda de una programacion sencilla por c++ se creo una archivo de texto que repitiera un patron de 20 pixeles rojo, 20 verde, 20 azul y 20 blanco hasta llenar toda la matriz de (350x240). Para cada color se uso el siguiente codigo en hexadecimal:
 
 * Blanco => FF
